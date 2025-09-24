@@ -4,8 +4,8 @@ using System; // Required for Type handling
 
 public class UpdateCollectibleCount : MonoBehaviour
 {
-    private TextMeshProUGUI collectibleText; // Reference to the TextMeshProUGUI component
-
+    public TextMeshProUGUI collectibleText; // Reference to the TextMeshProUGUI component
+    
     void Start()
     {
         collectibleText = GetComponent<TextMeshProUGUI>();
@@ -25,13 +25,14 @@ public class UpdateCollectibleCount : MonoBehaviour
     private void UpdateCollectibleDisplay()
     {
         int totalCollectibles = 0;
-
+        
         // Check and count objects of type Collectible
         Type collectibleType = Type.GetType("Collectible");
         if (collectibleType != null)
         {
             totalCollectibles += UnityEngine.Object.FindObjectsOfType(collectibleType).Length;
         }
+    
 
         // Optionally, check and count objects of type Collectible2D as well if needed
         Type collectible2DType = Type.GetType("Collectible2D");
@@ -45,4 +46,5 @@ public class UpdateCollectibleCount : MonoBehaviour
 
 
     }
+    
 }
